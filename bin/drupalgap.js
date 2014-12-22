@@ -8598,12 +8598,13 @@ function node_page_view_pageshow(nid) {
               id: comment_list_id(node.nid)
             }
           };
-          // If the comments are closed (1) or open (2), show the comments.
+          // If the comments undefined, inject the page.
           if (typeof node.comment === 'undefined') {
         	  _drupalgap_entity_page_container_inject(
         	    'node', node.nid, 'view', build
         	  );
         	}
+        	// If the comments are closed (1) or open (2), show the comments.
           else if (node.comment != 0) {
             if (node.comment == 1 || node.comment == 2) {
               // Render the comment form, so we can add it to the content later.
